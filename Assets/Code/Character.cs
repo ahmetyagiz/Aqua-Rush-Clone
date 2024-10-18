@@ -5,17 +5,20 @@ public class Character : MonoBehaviour
 {
     public enum ColorType
     {
-        Green,
+        None,
         Blue,
+        Green,
+        Orange,
+        Purple,
         Red,
+        Yellow,
     }
 
     private Animator _animator;
     private NavMeshAgent _navMeshAgent;
     private bool _isMovingToTarget;
-    private bool _isTargetReached;
 
-    [SerializeField] private ColorType colorType;
+    public ColorType colorType;
     [SerializeField] private Transform Debug_TARGET;
 
     private void Start()
@@ -40,7 +43,7 @@ public class Character : MonoBehaviour
                 // Karakteri durdur
                 CharacterReachedDestination();
 
-                Debug.Log("Karakter hedefe ulaþtý.");
+                //Debug.Log("Karakter hedefe ulaþtý.");
             }
         }
     }
