@@ -14,14 +14,15 @@ public class InputHandler : MonoBehaviour
 
     private void OnClicked()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(GetPointerPosition()), Vector2.zero);
+        // Raycast oluþtur ve dokunduðun yerden at
+        Ray ray = Camera.main.ScreenPointToRay(GetPointerPosition());
 
-        if (hit.collider != null)
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            //if (hit.collider.CompareTag("Screw"))
-            //{
-            //    hit.collider.GetComponent<Screw>().DestroyNail();
-            //}
+            if (hit.collider.CompareTag("Character"))
+            {
+                Debug.Log("Karaktere týklandý");
+            }
         }
     }
 
