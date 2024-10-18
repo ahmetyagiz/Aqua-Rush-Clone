@@ -21,7 +21,7 @@ public class InputHandler : MonoBehaviour
         {
             if (hit.collider.CompareTag("Character"))
             {
-                Debug.Log("Karaktere týklandý");
+                hit.collider.GetComponent<Character>().StartMoveToTarget();
             }
         }
     }
