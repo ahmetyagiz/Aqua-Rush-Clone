@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 6256260661185192468}
   - component: {fileID: 7598226096840070730}
   - component: {fileID: 1056200835978728210}
+  - component: {fileID: 4985050399733923634}
   m_Layer: 0
   m_Name: _Stickman
   m_TagString: Character
@@ -221,6 +222,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorType: 0
   Debug_TARGET: {fileID: 0}
+--- !u!114 &4985050399733923634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031894369539254562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85935735dafbd244839c8e020f837eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6031894369539254564
 GameObject:
   m_ObjectHideFlags: 0

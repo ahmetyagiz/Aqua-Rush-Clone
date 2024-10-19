@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Character
+  - Cell_Full
+  - Cell_Empty
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - Water
   - UI
   - GameArea
-  - 
+  - GridCell
   - 
   - 
   - 
