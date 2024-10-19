@@ -11,6 +11,12 @@ TagManager:
   - FrontCell_Empty
   - LevelEnd_Red
   - LevelEnd_Blue
+  - LevelEnd_Green
+  - LevelEnd_Orange
+  - LevelEnd_Purple
+  - LevelEnd_Yellow
+  - Win_Panel
+  - Lose_Panel
   layers:
   - Default
   - TransparentFX

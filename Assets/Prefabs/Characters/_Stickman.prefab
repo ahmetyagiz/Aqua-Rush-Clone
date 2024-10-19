@@ -253,7 +253,9 @@ MonoBehaviour:
   objectLayer:
     serializedVersion: 2
     m_Bits: 128
+  boxCenter: {x: 0, y: 0, z: 0}
   boxSize: {x: 2, y: 0.25, z: 2}
+  showGizmos: 0
 --- !u!1 &6031894369539254564
 GameObject:
   m_ObjectHideFlags: 0

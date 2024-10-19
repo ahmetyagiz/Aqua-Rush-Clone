@@ -66,7 +66,7 @@ public class Character : MonoBehaviour
 
     public void StartMoveToTarget()
     {
-        if (_checkSurroundingWithBox.IsSpaceFree())
+        if (_checkSurroundingWithBox.IsSpaceFree() && FrontCellManager.Instance.IsAnyFrontCellEmpty())
         {
             _moveCellTarget = FrontCellManager.Instance.GetEmptyFrontCell();
 
@@ -89,7 +89,7 @@ public class Character : MonoBehaviour
         _isMovingToTarget = false;
         _animator.SetTrigger("Idle");
         transform.LookAt(transform.position + Vector3.back);
-        WinLoseManager.Instance.AddCharacterToList(colorType, gameObject);
+        MatchThreeChecker.Instance.AddCharacterToList(colorType, gameObject);
     }
 
     void WakeUpCheck()
@@ -102,8 +102,9 @@ public class Character : MonoBehaviour
 
     public void MoveToLevelEndTargetTrigger()
     {
+        _moveCellTarget.tag = "FrontCell_Empty";
         _animator.SetTrigger("Run");
-        _navMeshAgent.stoppingDistance = 0.6f;
+        _navMeshAgent.stoppingDistance = 0.55f;
         _navMeshAgent.isStopped = false;
         _isMovingToLevelEnd = true;
     }
@@ -134,7 +135,7 @@ public class Character : MonoBehaviour
         if (_moveLevelEndTarget != null && _isMovingToLevelEnd)
         {
             _navMeshAgent.SetDestination(_moveLevelEndTarget.position);
-            Debug.Log("Seviye sonuna gidiyorum");
+            //Debug.Log("Seviye sonuna gidiyorum");
         }
 
         // Eðer NavMeshAgent hareket ediyorsa
@@ -154,6 +155,6 @@ public class Character : MonoBehaviour
     public void CharacterReachedLevelEndDestination()
     {
         //Debug.Log("Karakter kaydýraða ulaþtý");
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
