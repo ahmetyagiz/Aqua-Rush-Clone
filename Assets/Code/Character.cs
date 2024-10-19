@@ -1,19 +1,19 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum ColorType
+{
+    None,
+    Blue,
+    Green,
+    Orange,
+    Purple,
+    Red,
+    Yellow,
+}
+
 public class Character : MonoBehaviour
 {
-    public enum ColorType
-    {
-        None,
-        Blue,
-        Green,
-        Orange,
-        Purple,
-        Red,
-        Yellow,
-    }
-
     private Animator _animator;
     private Transform _moveCellTarget;
     private NavMeshAgent _navMeshAgent;
@@ -84,6 +84,7 @@ public class Character : MonoBehaviour
         _isMovingToTarget = false;
         _animator.SetTrigger("Idle");
         transform.LookAt(transform.position + Vector3.back);
+        WinLoseManager.Instance.IncreaseColorCount(colorType);
     }
 
     void WakeUpCheck()
