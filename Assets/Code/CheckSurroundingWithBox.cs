@@ -16,8 +16,8 @@ public class CheckSurroundingWithBox : MonoBehaviour
         // Tüm collider'larý kontrol et
         foreach (var collider in colliders)
         {
-            // Eðer herhangi bir "Empty_Cell" tag'ine sahip obje varsa alan boþtur
-            if (collider.CompareTag("Empty_Cell"))
+            // Eðer herhangi bir "Cell_Empty" tag'ine sahip obje varsa alan boþtur
+            if (collider.CompareTag("Cell_Empty"))
             {
                 return true; // Boþ hücre bulundu, alan boþ
             }

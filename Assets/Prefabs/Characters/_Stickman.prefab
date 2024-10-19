@@ -222,7 +222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorType: 0
-  Debug_TARGET: {fileID: 0}
 --- !u!114 &4985050399733923634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!114 &8431076316815618463
 MonoBehaviour:
   m_ObjectHideFlags: 0

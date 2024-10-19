@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CellEmptinessManager : MonoBehaviour
 {
-    private GameObject gridCell;
+    public GameObject gridCell;
     [SerializeField] private LayerMask gridLayer;
 
     private void Start()
@@ -13,7 +13,7 @@ public class CellEmptinessManager : MonoBehaviour
     // Alttaki gridin alýnmasý için ray atýyorum.
     void SendRayToDown()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1f, gridLayer))
+        if (Physics.Raycast(transform.position + Vector3.up, Vector3.down, out RaycastHit hit, 5f, gridLayer))
         {
             gridCell = hit.collider.gameObject;
             gridCell.tag = "Cell_Full";
@@ -21,7 +21,7 @@ public class CellEmptinessManager : MonoBehaviour
     }
 
     // Hareket edince hücrenin tag'ini boþ yapýyorum.
-    void SetGridToEmpty()
+    public void SetCellTagToEmpty()
     {
         gridCell.tag = "Cell_Empty";
     }

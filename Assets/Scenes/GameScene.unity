@@ -3147,10 +3147,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 518372457551352270, guid: e735a59d5fc28764fa26f83928a26ed5, type: 3}
-      propertyPath: gridLayer.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 1272902503807687612, guid: e735a59d5fc28764fa26f83928a26ed5, type: 3}
       propertyPath: m_RootOrder
       value: 0
