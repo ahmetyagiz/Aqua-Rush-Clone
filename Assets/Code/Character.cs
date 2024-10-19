@@ -104,7 +104,7 @@ public class Character : MonoBehaviour
     {
         _moveCellTarget.tag = "FrontCell_Empty";
         _animator.SetTrigger("Run");
-        _navMeshAgent.stoppingDistance = 0.55f;
+        _navMeshAgent.stoppingDistance = 0.6f;
         _navMeshAgent.isStopped = false;
         _isMovingToLevelEnd = true;
     }
