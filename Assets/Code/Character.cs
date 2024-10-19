@@ -67,6 +67,7 @@ public class Character : MonoBehaviour
 
             // Týkladýðým karakterin navmesh obstacle komponentini sil.
             _cellEmptinessManager.gridCell.GetComponent<NavMeshObstacle>().enabled = false;
+
             // Týkladýðým karakterin navmesh agentýný aç
             _navMeshAgent.enabled = true;
 

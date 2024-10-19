@@ -1,9 +1,9 @@
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FrontCellManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> FrontCells;
+    private GameObject[] FrontCells;
 
     public static FrontCellManager Instance;
 
@@ -16,6 +16,17 @@ public class FrontCellManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    private void Start()
+    {
+        GetAllFrontCells();
+    }
+
+    void GetAllFrontCells()
+    {
+        FrontCells = GameObject.FindGameObjectsWithTag("FrontCell_Empty");
+        FrontCells = FrontCells.OrderBy(cell => cell.transform.position.x).ToArray();
     }
 
     public Transform GetEmptyFrontCell()
