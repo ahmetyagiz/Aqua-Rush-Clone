@@ -9,6 +9,8 @@ TagManager:
   - Cell_Empty
   - FrontCell_Full
   - FrontCell_Empty
+  - LevelEnd_Red
+  - LevelEnd_Blue
   layers:
   - Default
   - TransparentFX

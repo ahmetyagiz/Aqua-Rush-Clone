@@ -16,11 +16,13 @@ public class Character : MonoBehaviour
 {
     private Animator _animator;
     private Transform _moveCellTarget;
+    private Transform _moveLevelEndTarget;
     private NavMeshAgent _navMeshAgent;
     private CellEmptinessManager _cellEmptinessManager;
     private CheckSurroundingWithBox _checkSurroundingWithBox;
 
     private bool _isMovingToTarget;
+    private bool _isMovingToLevelEnd;
 
     public ColorType colorType;
 
@@ -30,12 +32,15 @@ public class Character : MonoBehaviour
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _cellEmptinessManager = GetComponent<CellEmptinessManager>();
         _checkSurroundingWithBox = GetComponent<CheckSurroundingWithBox>();
+
+        _moveLevelEndTarget = SetLevelEndTarget();
     }
 
     void Update()
     {
         CharacterMovement();
         WakeUpCheck();
+        MoveToLevelEndTarget();
     }
 
     void CharacterMovement()
@@ -84,7 +89,7 @@ public class Character : MonoBehaviour
         _isMovingToTarget = false;
         _animator.SetTrigger("Idle");
         transform.LookAt(transform.position + Vector3.back);
-        WinLoseManager.Instance.IncreaseColorCount(colorType);
+        WinLoseManager.Instance.AddCharacterToList(colorType, gameObject);
     }
 
     void WakeUpCheck()
@@ -93,5 +98,62 @@ public class Character : MonoBehaviour
         {
             _animator.SetTrigger("WakeUp");
         }
+    }
+
+    public void MoveToLevelEndTargetTrigger()
+    {
+        _animator.SetTrigger("Run");
+        _navMeshAgent.stoppingDistance = 0.6f;
+        _navMeshAgent.isStopped = false;
+        _isMovingToLevelEnd = true;
+    }
+
+    Transform SetLevelEndTarget()
+    {
+        switch (colorType)
+        {
+            case ColorType.Blue:
+                return GameObject.FindGameObjectWithTag("LevelEnd_Blue").transform;
+            case ColorType.Green:
+                return GameObject.FindGameObjectWithTag("LevelEnd_Green").transform;
+            case ColorType.Orange:
+                return GameObject.FindGameObjectWithTag("LevelEnd_Orange").transform;
+            case ColorType.Purple:
+                return GameObject.FindGameObjectWithTag("LevelEnd_Purple").transform;
+            case ColorType.Red:
+                return GameObject.FindGameObjectWithTag("LevelEnd_Red").transform;
+            case ColorType.Yellow:
+                return GameObject.FindGameObjectWithTag("LevelEnd_Yellow").transform;
+            default:
+                return null;
+        }
+    }
+
+    void MoveToLevelEndTarget()
+    {
+        if (_moveLevelEndTarget != null && _isMovingToLevelEnd)
+        {
+            _navMeshAgent.SetDestination(_moveLevelEndTarget.position);
+            Debug.Log("Seviye sonuna gidiyorum");
+        }
+
+        // Eðer NavMeshAgent hareket ediyorsa
+        if (_navMeshAgent.enabled && !_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance && _isMovingToLevelEnd)
+        {
+            // Eðer karakter hedefe ulaþtýysa
+            if (!_navMeshAgent.hasPath || _navMeshAgent.velocity.sqrMagnitude == 0f)
+            {
+                // Karakteri durdur
+                CharacterReachedLevelEndDestination();
+
+                //Debug.Log("Karakter kaydýraða ulaþtý.");
+            }
+        }
+    }
+
+    public void CharacterReachedLevelEndDestination()
+    {
+        //Debug.Log("Karakter kaydýraða ulaþtý");
+        gameObject.SetActive(false);
     }
 }

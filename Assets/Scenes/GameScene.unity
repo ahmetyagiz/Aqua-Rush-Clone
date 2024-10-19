@@ -480,6 +480,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5802604033292104691, guid: d0a4f620688a8ee48a457dde40bfe0e3, type: 3}
+      propertyPath: m_TagString
+      value: LevelEnd_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802604033292104691, guid: d0a4f620688a8ee48a457dde40bfe0e3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802604033484831155, guid: d0a4f620688a8ee48a457dde40bfe0e3, type: 3}
+      propertyPath: m_TagString
+      value: LevelEnd_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802604033484831155, guid: d0a4f620688a8ee48a457dde40bfe0e3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0a4f620688a8ee48a457dde40bfe0e3, type: 3}
 --- !u!1 &963194225
@@ -677,9 +693,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e77066c92f90f448a4578c35e60069e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueCount: 0
-  greenCount: 0
-  orangeCount: 0
-  purpleCount: 0
-  redCount: 0
-  yellowCount: 0
+  BluesOnFrontCell: []
+  GreensOnFrontCell: []
+  OrangesOnFrontCell: []
+  PurplesOnFrontCell: []
+  RedsOnFrontCell: []
+  YellowsOnFrontCell: []
