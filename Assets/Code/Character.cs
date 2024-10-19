@@ -71,6 +71,7 @@ public class Character : MonoBehaviour
             // Týkladýðým karakterin navmesh agentýný aç
             _navMeshAgent.enabled = true;
 
+            GetComponent<BoxCollider>().enabled = false;
             _isMovingToTarget = true;
             _animator.SetTrigger("Run");
             _cellEmptinessManager.SetCellTagToEmpty();
