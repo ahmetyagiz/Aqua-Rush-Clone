@@ -28,9 +28,9 @@ public class CheckSurroundingWithBox : MonoBehaviour
     }
 
     // Oyun sahnesinde etrafý görsel olarak çizmek için (isteðe baðlý)
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position, boxSize); // Kontrol edilecek kutunun boyutunu gösterir
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireCube(transform.position, boxSize); // Kontrol edilecek kutunun boyutunu gösterir
+    //}
 }

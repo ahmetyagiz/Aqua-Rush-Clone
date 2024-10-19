@@ -17,9 +17,9 @@ public class Character : MonoBehaviour
     private Animator _animator;
     private NavMeshAgent _navMeshAgent;
     private bool _isMovingToTarget;
+    private Transform _moveCellTarget;
 
     public ColorType colorType;
-    [SerializeField] private Transform Debug_TARGET;
 
     private void Start()
     {
@@ -29,9 +29,9 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        if (Debug_TARGET != null && _isMovingToTarget)
+        if (_moveCellTarget != null && _isMovingToTarget)
         {
-            _navMeshAgent.SetDestination(Debug_TARGET.position);
+            _navMeshAgent.SetDestination(_moveCellTarget.position);
         }
 
         // Eðer NavMeshAgent hareket ediyorsa
@@ -50,6 +50,7 @@ public class Character : MonoBehaviour
 
     public void StartMoveToTarget()
     {
+        _moveCellTarget = FrontCellManager.Instance.GetEmptyFrontCell();
         _isMovingToTarget = true;
         _animator.SetTrigger("WakeUp");
         _animator.SetTrigger("Run");

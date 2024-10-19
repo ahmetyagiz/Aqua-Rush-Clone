@@ -7,6 +7,8 @@ TagManager:
   - Character
   - Cell_Full
   - Cell_Empty
+  - FrontCell_Full
+  - FrontCell_Empty
   layers:
   - Default
   - TransparentFX
