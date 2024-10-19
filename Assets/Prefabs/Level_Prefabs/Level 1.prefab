@@ -523,10 +523,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5802604032940696046}
     m_Modifications:
-    - target: {fileID: 8748611790198919078, guid: ec047bf410737a740954f73783bc9aea, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.567456
-      objectReference: {fileID: 0}
     - target: {fileID: 8748611790502768958, guid: ec047bf410737a740954f73783bc9aea, type: 3}
       propertyPath: m_Name
       value: Water
@@ -546,22 +542,6 @@ PrefabInstance:
     - target: {fileID: 8748611790502768959, guid: ec047bf410737a740954f73783bc9aea, type: 3}
       propertyPath: m_LocalPosition.z
       value: 4.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 8748611790502768959, guid: ec047bf410737a740954f73783bc9aea, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8748611790502768959, guid: ec047bf410737a740954f73783bc9aea, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8748611790502768959, guid: ec047bf410737a740954f73783bc9aea, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8748611790502768959, guid: ec047bf410737a740954f73783bc9aea, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8748611790502768959, guid: ec047bf410737a740954f73783bc9aea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
