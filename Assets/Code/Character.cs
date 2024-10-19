@@ -46,7 +46,7 @@ public class Character : MonoBehaviour
         }
 
         // Eðer NavMeshAgent hareket ediyorsa
-        if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance && _isMovingToTarget)
+        if (_navMeshAgent.enabled && !_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance && _isMovingToTarget)
         {
             // Eðer karakter hedefe ulaþtýysa
             if (!_navMeshAgent.hasPath || _navMeshAgent.velocity.sqrMagnitude == 0f)
@@ -64,6 +64,12 @@ public class Character : MonoBehaviour
         if (_checkSurroundingWithBox.IsSpaceFree())
         {
             _moveCellTarget = FrontCellManager.Instance.GetEmptyFrontCell();
+
+            // Týkladýðým karakterin navmesh obstacle komponentini sil.
+            _cellEmptinessManager.gridCell.GetComponent<NavMeshObstacle>().enabled = false;
+            // Týkladýðým karakterin navmesh agentýný aç
+            _navMeshAgent.enabled = true;
+
             _isMovingToTarget = true;
             _animator.SetTrigger("Run");
             _cellEmptinessManager.SetCellTagToEmpty();

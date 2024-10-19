@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CellEmptinessManager : MonoBehaviour
 {
-    public GameObject gridCell;
+    [HideInInspector] public GameObject gridCell;
     [SerializeField] private LayerMask gridLayer;
 
     private void Start()
@@ -17,6 +18,11 @@ public class CellEmptinessManager : MonoBehaviour
         {
             gridCell = hit.collider.gameObject;
             gridCell.tag = "Cell_Full";
+
+            NavMeshObstacle navMeshObstacle = gridCell.AddComponent<NavMeshObstacle>();
+            navMeshObstacle.center = Vector3.zero;
+            navMeshObstacle.size = new Vector3(1f, 0.2f, 0.1f);
+            navMeshObstacle.carving = true;
         }
     }
 
